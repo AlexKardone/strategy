@@ -508,7 +508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b23b98336f474abeac8342041758efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  house: {fileID: 0}
   shopPanel: {fileID: 0}
+  allCells: {fileID: 0}
+  houseBool: 0
 --- !u!1001 &62114168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3796,6 +3799,34 @@ PrefabInstance:
       propertyPath: m_Text
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1816057280}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuildHouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ShopController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113005836022413140, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8292379229056757769, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
       propertyPath: m_Text
       value: 2000
@@ -4236,6 +4267,10 @@ PrefabInstance:
       propertyPath: shopPanel
       value: 
       objectReference: {fileID: 1816057275}
+    - target: {fileID: 5960722708116666288, guid: fc4f22f1c0469469c8128b77023aca53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 9048762270909359470, guid: fc4f22f1c0469469c8128b77023aca53, type: 3}
       propertyPath: m_Name
       value: Cell (1)
@@ -4459,6 +4494,10 @@ PrefabInstance:
     - target: {fileID: 8902849877939803774, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
       propertyPath: m_Name
       value: Button (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902849877939803774, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
@@ -7271,13 +7310,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8b23b98336f474abeac8342041758efc, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1816057280}
+        m_TargetAssemblyTypeName: ShopController, Assembly-CSharp
+        m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7446,7 +7485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1816057276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7542,7 +7581,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b23b98336f474abeac8342041758efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  house: {fileID: 4017359017750083363, guid: fb539cc724255d2498155cd1c8c64d87, type: 3}
   shopPanel: {fileID: 1816057275}
+  allCells: {fileID: 20750773}
+  houseBool: 0
 --- !u!1001 &1824063384
 PrefabInstance:
   m_ObjectHideFlags: 0
