@@ -12,18 +12,7 @@ public class ShopController : MonoBehaviour
     public GameObject allCells;
     private BuildManager buildManager;
     public bool houseBool;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool towerBool;
 
     private BuildManager GetBuildManager(int i)
     {
@@ -45,20 +34,37 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    public void BuildHouse()
+    public void Build(GameObject gameObject)
     {
-        if (houseBool) return;
+        //if (gameObject || towerBool) return;
 
         for (int i = 0; i < allCells.transform.childCount; i++)
         {
             buildManager = GetBuildManager(i);
             if (buildManager.activeCell && !buildManager.building)
             {
-                buildManager.SetBuild(house);
-                houseBool = false;
+                buildManager.SetBuild(gameObject);
+                //houseBool = true;
                 break;
             }
         }
         shopPanel.SetActive(false);
     }
+
+    //public void BuildHouse()
+    //{
+    //    if (houseBool) return;
+
+    //    for (int i = 0; i < allCells.transform.childCount; i++)
+    //    {
+    //        buildManager = GetBuildManager(i);
+    //        if (buildManager.activeCell && !buildManager.building)
+    //        {
+    //            buildManager.SetBuild(house);
+    //            houseBool = true;
+    //            break;
+    //        }
+    //    }
+    //    shopPanel.SetActive(false);
+    //}
 }

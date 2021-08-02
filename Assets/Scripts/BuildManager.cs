@@ -10,18 +10,13 @@ public class BuildManager : MonoBehaviour
     public bool water;
     public bool activeCell;
     public GameObject shopPanel;
+    private Transform obj;
     internal bool prop;
 
     private void Awake()
     {
         image = transform.GetChild(0).GetComponent<Image>();
     }
-
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
 
     void Update()
     {
@@ -50,7 +45,9 @@ public class BuildManager : MonoBehaviour
 
     public void SetBuild(GameObject build)
     {
-        Instantiate(build).transform.position = transform.GetChild(1).transform.position;
+        obj = Instantiate(build).transform;
+        obj.position = transform.GetChild(1).transform.position;
+        obj.Rotate(0, 0, 0);
         building = true;
         activeCell = false;
     }
