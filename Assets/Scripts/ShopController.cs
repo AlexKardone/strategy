@@ -6,10 +6,13 @@ public class ShopController : MonoBehaviour
 {
     [Header("Buildings")]
     public GameObject house;
+    public GameObject tower;
+    public GameObject store;
 
     [Header("Other")]
     public GameObject shopPanel;
     public GameObject allCells;
+    public GameObject resourcesPanel;
     private BuildManager buildManager;
     public bool houseBool;
     public bool towerBool;
@@ -34,37 +37,60 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    public void Build(GameObject gameObject)
+    public void BuildHouse()
     {
-        //if (gameObject || towerBool) return;
+        //if (houseBool) return;
+
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < 2000) return;
+
+            for (int i = 0; i < allCells.transform.childCount; i++)
+        {
+            buildManager = GetBuildManager(i);
+            if (buildManager.activeCell && !buildManager.building)
+            {
+                buildManager.SetBuild(house);
+                //houseBool = true;
+                resourcesPanel.GetComponent<ResourcesController>().gold -= 2000;
+            }
+        }
+        shopPanel.SetActive(false);
+    }
+
+    public void BuildTower()
+    {
+        //if (towerBool) return;
+
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < 7000) return;
 
         for (int i = 0; i < allCells.transform.childCount; i++)
         {
             buildManager = GetBuildManager(i);
             if (buildManager.activeCell && !buildManager.building)
             {
-                buildManager.SetBuild(gameObject);
-                //houseBool = true;
-                break;
+                buildManager.SetBuild(tower);
+                //towerBool = true;
+                resourcesPanel.GetComponent<ResourcesController>().gold -= 7000;
             }
         }
         shopPanel.SetActive(false);
     }
 
-    //public void BuildHouse()
-    //{
-    //    if (houseBool) return;
+    public void BuildStore()
+    {
+        //if (towerBool) return;
 
-    //    for (int i = 0; i < allCells.transform.childCount; i++)
-    //    {
-    //        buildManager = GetBuildManager(i);
-    //        if (buildManager.activeCell && !buildManager.building)
-    //        {
-    //            buildManager.SetBuild(house);
-    //            houseBool = true;
-    //            break;
-    //        }
-    //    }
-    //    shopPanel.SetActive(false);
-    //}
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < 5000) return;
+
+        for (int i = 0; i < allCells.transform.childCount; i++)
+        {
+            buildManager = GetBuildManager(i);
+            if (buildManager.activeCell && !buildManager.building)
+            {
+                buildManager.SetBuild(store);
+                //towerBool = true;
+                resourcesPanel.GetComponent<ResourcesController>().gold -= 5000;
+            }
+        }
+        shopPanel.SetActive(false);
+    }
 }
