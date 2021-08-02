@@ -14,8 +14,11 @@ public class ShopController : MonoBehaviour
     public GameObject allCells;
     public GameObject resourcesPanel;
     private BuildManager buildManager;
-    public bool houseBool;
-    public bool towerBool;
+    public bool storeBuilt;
+
+    [Header("ErrorMessage")]
+    public GameObject errorResources;
+    public GameObject errorStore;
 
     private BuildManager GetBuildManager(int i)
     {
@@ -24,6 +27,8 @@ public class ShopController : MonoBehaviour
 
     public void Cancel()
     {
+        errorResources.SetActive(false);
+        errorStore.SetActive(false);
         shopPanel.SetActive(false);
 
         for (int i = 0; i < allCells.transform.childCount; i++)
@@ -39,28 +44,31 @@ public class ShopController : MonoBehaviour
 
     public void BuildHouse()
     {
-        //if (houseBool) return;
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < 2000)
+        {
+            errorResources.SetActive(true);
+            return;
+        }
 
-        if (resourcesPanel.GetComponent<ResourcesController>().gold < 2000) return;
-
-            for (int i = 0; i < allCells.transform.childCount; i++)
+        for (int i = 0; i < allCells.transform.childCount; i++)
         {
             buildManager = GetBuildManager(i);
             if (buildManager.activeCell && !buildManager.building)
             {
                 buildManager.SetBuild(house);
-                //houseBool = true;
                 resourcesPanel.GetComponent<ResourcesController>().gold -= 2000;
             }
         }
-        shopPanel.SetActive(false);
+        Cancel();
     }
 
     public void BuildTower()
     {
-        //if (towerBool) return;
-
-        if (resourcesPanel.GetComponent<ResourcesController>().gold < 7000) return;
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < 7000)
+        {
+            errorResources.SetActive(true);
+            return;
+        }
 
         for (int i = 0; i < allCells.transform.childCount; i++)
         {
@@ -68,18 +76,25 @@ public class ShopController : MonoBehaviour
             if (buildManager.activeCell && !buildManager.building)
             {
                 buildManager.SetBuild(tower);
-                //towerBool = true;
                 resourcesPanel.GetComponent<ResourcesController>().gold -= 7000;
             }
         }
-        shopPanel.SetActive(false);
+        Cancel();
     }
 
     public void BuildStore()
     {
-        //if (towerBool) return;
+        if (storeBuilt)
+        {
+            errorStore.SetActive(true);
+            return;
+        }
 
-        if (resourcesPanel.GetComponent<ResourcesController>().gold < 5000) return;
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < 5000)
+        {
+            errorResources.SetActive(true);
+            return;
+        }
 
         for (int i = 0; i < allCells.transform.childCount; i++)
         {
@@ -87,10 +102,10 @@ public class ShopController : MonoBehaviour
             if (buildManager.activeCell && !buildManager.building)
             {
                 buildManager.SetBuild(store);
-                //towerBool = true;
+                storeBuilt = true;
                 resourcesPanel.GetComponent<ResourcesController>().gold -= 5000;
             }
         }
-        shopPanel.SetActive(false);
+        Cancel();
     }
 }

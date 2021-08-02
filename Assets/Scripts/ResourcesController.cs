@@ -17,10 +17,24 @@ public class ResourcesController : MonoBehaviour
     public int stones;
     public int maxStones;
     public int buildings;
+
+    [Header("Error message")]
+    public GameObject goldMessage;
+    public GameObject woodMessage;
+    public GameObject stoneMessage;
     
     void Update()
     {
         resourcesText.text = "Residents: " + residents + "/" + maxResidents + " Gold: " + gold + " Suplies: " + suplies + "/" + maxSuplies +
         "\r\nWood: " + wood + "/" + maxWood + " Stones: " + stones + "/" + maxStones + " Buildings: " + buildings;
+
+        if (gold < 2000) goldMessage.SetActive(true);
+        else goldMessage.SetActive(false);
+
+        if (wood < 2000) woodMessage.SetActive(true);
+        else goldMessage.SetActive(false);
+
+        if (stones < 2000) stoneMessage.SetActive(true);
+        else goldMessage.SetActive(false);
     }
 }
