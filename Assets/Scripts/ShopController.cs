@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
@@ -20,9 +21,24 @@ public class ShopController : MonoBehaviour
     public GameObject errorResources;
     public GameObject errorStore;
 
+    [Header("Price build")]
+    public int goldPriceHouse;
+    public int woodPriceHouse;
+    public int stonePriceHouse;
+    public Text goldTextHouse;
+    public Text woodTextHouse;
+    public Text stoneTextHouse;
+
     private BuildManager GetBuildManager(int i)
     {
         return allCells.transform.GetChild(i).GetComponent<BuildManager>();
+    }
+
+    private void Update()
+    {
+        goldTextHouse.text = goldPriceHouse.ToString();
+        woodTextHouse.text = woodPriceHouse.ToString();
+        stoneTextHouse.text = stonePriceHouse.ToString();
     }
 
     public void Cancel()
@@ -44,7 +60,9 @@ public class ShopController : MonoBehaviour
 
     public void BuildHouse()
     {
-        if (resourcesPanel.GetComponent<ResourcesController>().gold < 2000)
+        if (resourcesPanel.GetComponent<ResourcesController>().gold < goldPriceHouse
+        || resourcesPanel.GetComponent<ResourcesController>().wood < woodPriceHouse
+        || resourcesPanel.GetComponent<ResourcesController>().stones < stonePriceHouse)
         {
             errorResources.SetActive(true);
             return;
@@ -56,7 +74,9 @@ public class ShopController : MonoBehaviour
             if (buildManager.activeCell && !buildManager.building)
             {
                 buildManager.SetBuild(house);
-                resourcesPanel.GetComponent<ResourcesController>().gold -= 2000;
+                resourcesPanel.GetComponent<ResourcesController>().gold -= goldPriceHouse;
+                resourcesPanel.GetComponent<ResourcesController>().wood -= woodPriceHouse;
+                resourcesPanel.GetComponent<ResourcesController>().stones -= stonePriceHouse;
             }
         }
         Cancel();

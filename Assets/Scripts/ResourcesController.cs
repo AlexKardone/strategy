@@ -22,7 +22,7 @@ public class ResourcesController : MonoBehaviour
     public GameObject goldMessage;
     public GameObject woodMessage;
     public GameObject stoneMessage;
-    
+
     void Update()
     {
         resourcesText.text = "Residents: " + residents + "/" + maxResidents + " Gold: " + gold + " Suplies: " + suplies + "/" + maxSuplies +
