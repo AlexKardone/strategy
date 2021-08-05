@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,7 +409,6 @@ GameObject:
   - component: {fileID: 20750777}
   - component: {fileID: 20750776}
   - component: {fileID: 20750775}
-  - component: {fileID: 20750778}
   m_Layer: 5
   m_Name: Earth
   m_TagString: Untagged
@@ -558,33 +557,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20750773}
   m_CullTransparentMesh: 1
---- !u!114 &20750778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 20750773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b23b98336f474abeac8342041758efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  house: {fileID: 0}
-  tower: {fileID: 0}
-  store: {fileID: 0}
-  shopPanel: {fileID: 0}
-  allCells: {fileID: 0}
-  resourcesPanel: {fileID: 0}
-  storeBuilt: 0
-  errorResources: {fileID: 0}
-  errorStore: {fileID: 0}
-  goldPriceHouse: 0
-  woodPriceHouse: 0
-  stonePriceHouse: 0
-  goldTextHouse: {fileID: 0}
-  woodTextHouse: {fileID: 0}
-  stoneTextHouse: {fileID: 0}
 --- !u!1001 &62114168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6654,6 +6626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8902849877939803774, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d5f9295eda894091a845b5a4ed524a3, type: 3}
 --- !u!224 &793443466 stripped
@@ -7516,8 +7492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 230.29004}
-  m_SizeDelta: {x: 0, y: -460.5801}
+  m_AnchoredPosition: {x: 0, y: 352.34045}
+  m_SizeDelta: {x: 0, y: -704.681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &945665333
 MonoBehaviour:
@@ -10045,8 +10021,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -248.11327, y: 0}
-  m_SizeDelta: {x: 310.5602, y: 75.108}
+  m_AnchoredPosition: {x: -98.560165, y: 0}
+  m_SizeDelta: {x: 609.6664, y: 75.108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1377368206
 MonoBehaviour:
@@ -10102,7 +10078,7 @@ GameObject:
   - component: {fileID: 1379633231}
   m_Layer: 5
   m_Name: ResourcesController
-  m_TagString: Untagged
+  m_TagString: resourcesController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13713,7 +13689,7 @@ MonoBehaviour:
   storeBuilt: 0
   errorResources: {fileID: 1929270010}
   errorStore: {fileID: 759321100}
-  goldPriceHouse: 2000
+  goldPriceHouse: 1000
   woodPriceHouse: 1000
   stonePriceHouse: 1000
   goldTextHouse: {fileID: 1533712578}

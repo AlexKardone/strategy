@@ -28,6 +28,16 @@ public class ResourcesController : MonoBehaviour
         resourcesText.text = "Residents: " + residents + "/" + maxResidents + " Gold: " + gold + " Suplies: " + suplies + "/" + maxSuplies +
         "\r\nWood: " + wood + "/" + maxWood + " Stones: " + stones + "/" + maxStones + " Buildings: " + buildings;
 
+        if (suplies < 0)
+        {
+            suplies = 0;
+        }
+
+        if (residents < 0)
+        {
+            residents = 0;
+        }
+
         if (gold < 2000) goldMessage.SetActive(true);
         else goldMessage.SetActive(false);
 

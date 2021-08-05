@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4017359017747114787}
   - component: {fileID: 4017359017748081123}
   - component: {fileID: 4017359017752172931}
+  - component: {fileID: 4408274994494864634}
   m_Layer: 0
   m_Name: Fantasy_House_6
   m_TagString: Untagged
@@ -101,3 +102,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 318351b249902a44ea6748a84674a269, type: 3}
+--- !u!114 &4408274994494864634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017359017750083363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020755b0edde949df86d92937083b204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  residents: 0
+  maxResidents: 5
+  residentsAdd: 5
+  product: 15
+  productUse: 7
+  residentsDied: 8
+  tax: 12
+  taxAdd: 15
